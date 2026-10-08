@@ -1,0 +1,7 @@
+# Local credentials and tool state
+deploy.local.ps1
+.env
+.env.*
+.wrangler/
+.dev.vars
+node_modules/

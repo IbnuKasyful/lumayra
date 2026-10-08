@@ -1,0 +1,610 @@
+<title>Lumayra B2B Homepage</title>
+<meta name="description" content="Mockup: Lumayra commercial cleaning and floor care for UAE businesses.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --navy-900: #0B1626;
+    --navy-800: #12213A;
+    --navy-700: #1C3050;
+    --gold: #B5924C;
+    --gold-soft: #D9C08A;
+    --paper: #FFFFFF;
+    --mist: #F2F4F7;
+    --line: #DDE2EA;
+    --ink: #101A2B;
+    --slate: #55627A;
+    --on-dark: #E9EDF4;
+    --on-dark-muted: #A7B2C6;
+    --display: "Manrope", "Segoe UI", Arial, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+    --mono: "IBM Plex Mono", Consolas, monospace;
+    --wrap: 1200px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  .wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: 24px; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
+  }
+  .section { padding-block: 88px; }
+  .section-head { display: grid; gap: 14px; max-width: 720px; margin-bottom: 44px; }
+  .section-head h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; font-weight: 700; }
+  .section-head p { color: var(--slate); font-size: 17px; max-width: 62ch; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: var(--display); font-weight: 700; font-size: 15px;
+    padding: 14px 22px; border-radius: 4px; border: 1.5px solid transparent;
+    text-decoration: none; cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+  }
+  .btn-gold { background: var(--gold); color: var(--navy-900); }
+  .btn-gold:hover { background: var(--gold-soft); }
+  .btn-ghost { border-color: rgba(233,237,244,.45); color: var(--on-dark); background: transparent; }
+  .btn-ghost:hover { border-color: var(--on-dark); background: rgba(255,255,255,.06); }
+  .btn-navy { background: var(--navy-800); color: #fff; }
+  .btn-navy:hover { background: var(--navy-700); }
+  .btn-line { border-color: var(--navy-800); color: var(--navy-800); background: transparent; }
+  .btn-line:hover { background: var(--navy-800); color: #fff; }
+
+  /* Mockup note */
+  .mock-note {
+    background: #FFF6DC; color: #5B4A14; font-size: 13px; border-bottom: 1px solid #EBD99A;
+  }
+  .mock-note .wrap { padding-block: 8px; }
+
+  /* Utility bar */
+  .util { background: var(--navy-900); color: var(--on-dark-muted); font-size: 13px; }
+  .util .wrap { display: flex; flex-wrap: wrap; gap: 6px 28px; justify-content: space-between; padding-block: 9px; }
+  .util-group { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+  .util strong { color: var(--on-dark); font-weight: 500; }
+
+  /* Header */
+  .site-header { background: var(--navy-800); color: var(--on-dark); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 16px; }
+  .logo { display: grid; text-decoration: none; line-height: 1; }
+  .logo b { font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: 0.16em; color: var(--gold-soft); }
+  .logo span { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.3em; color: var(--on-dark-muted); margin-top: 6px; }
+  .nav { display: flex; align-items: center; gap: 30px; }
+  .nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--on-dark); opacity: .88; }
+  .nav a:hover { opacity: 1; color: var(--gold-soft); }
+  .header-cta { display: flex; align-items: center; gap: 14px; }
+  .header-cta .btn { padding: 11px 18px; font-size: 14px; }
+  .menu-btn { display: none; background: none; border: 1.5px solid rgba(255,255,255,.3); color: var(--on-dark); border-radius: 4px; padding: 9px 12px; font-family: var(--display); font-weight: 700; font-size: 13px; cursor: pointer; }
+
+  /* Hero */
+  .hero { position: relative; color: var(--on-dark); background: var(--navy-900); overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(11,22,38,.96) 0%, rgba(11,22,38,.86) 42%, rgba(11,22,38,.45) 100%);
+  }
+  .hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .85fr); gap: 56px; align-items: center; padding-block: 96px 104px; }
+  .hero-copy { display: grid; gap: 24px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 60px); line-height: 1.06; font-weight: 800; color: #fff; }
+  .hero h1 em { font-style: normal; color: var(--gold-soft); }
+  .hero-lead { font-size: 18px; color: var(--on-dark); max-width: 56ch; opacity: .92; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-points { display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 14px; color: var(--on-dark-muted); padding-top: 8px; }
+  .hero-points li { display: flex; align-items: center; gap: 8px; }
+  .hero-points li::before { content: ""; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; flex: none; }
+
+  .spec {
+    background: rgba(11,22,38,.82); border: 1px solid rgba(217,192,138,.35); border-radius: 6px;
+    backdrop-filter: blur(6px); padding: 26px;
+  }
+  .spec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .spec-head h2 { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: 0; }
+  .spec-head span { font-family: var(--mono); font-size: 11px; color: var(--gold-soft); letter-spacing: .1em; text-transform: uppercase; }
+  .spec dl { margin: 0; display: grid; }
+  .spec-row { display: grid; grid-template-columns: 112px 1fr; gap: 12px; padding-block: 11px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 14px; }
+  .spec-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .spec dt { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--on-dark-muted); padding-top: 2px; }
+  .spec dd { margin: 0; color: var(--on-dark); font-variant-numeric: tabular-nums; }
+
+  /* Assurance strip */
+  .assure { background: var(--mist); border-bottom: 1px solid var(--line); }
+  .assure ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .assure li { padding: 26px 24px; border-left: 1px solid var(--line); display: grid; gap: 4px; }
+  .assure li:first-child { border-left: 0; padding-left: 0; }
+  .assure b { font-family: var(--display); font-size: 16px; font-weight: 700; }
+  .assure span { font-size: 14px; color: var(--slate); }
+
+  /* Clients */
+  .clients { padding-block: 40px; border-bottom: 1px solid var(--line); }
+  .clients .wrap { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: center; }
+  .clients p { font-size: 14px; color: var(--slate); }
+  .logo-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+  .logo-slot { border: 1px dashed #B9C2D0; border-radius: 4px; height: 56px; display: grid; place-items: center; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #8691A5; }
+
+  /* Industries */
+  .ind-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .ind {
+    position: relative; display: block; overflow: hidden; border-radius: 6px; aspect-ratio: 4 / 3; max-width: 100%;
+    color: #fff; text-decoration: none; background: var(--navy-800);
+  }
+  .ind img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .ind::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,22,38,.05) 30%, rgba(11,22,38,.9) 100%); }
+  .ind-body { position: absolute; z-index: 1; left: 22px; right: 22px; bottom: 20px; display: grid; gap: 4px; }
+  .ind-body h3 { font-size: 20px; font-weight: 700; }
+  .ind-body p { font-size: 14px; color: var(--on-dark); opacity: .88; }
+  .ind:hover img { transform: scale(1.04); }
+
+  /* Services */
+  .services { background: var(--mist); }
+  .svc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  .svc { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+  .svc img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+  .svc-body { padding: 22px; display: grid; gap: 12px; align-content: start; }
+  .svc-body h3 { font-size: 18px; font-weight: 700; line-height: 1.25; }
+  .svc-body p { font-size: 14.5px; color: var(--slate); }
+  .svc-body ul { display: grid; gap: 6px; font-size: 14px; padding-top: 4px; }
+  .svc-body li { padding-left: 16px; position: relative; }
+  .svc-body li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 1.5px; background: var(--gold); }
+  .svc-link { font-family: var(--display); font-weight: 700; font-size: 14px; color: var(--navy-800); text-decoration: none; margin-top: 6px; }
+  .svc-link:hover { color: var(--gold); }
+
+  /* Floor care feature */
+  .floor { background: var(--navy-800); color: var(--on-dark); }
+  .floor .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+  .floor img { border-radius: 6px; width: 100%; aspect-ratio: 5 / 4; object-fit: cover; }
+  .floor-copy { display: grid; gap: 20px; }
+  .floor-copy h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; color: #fff; }
+  .floor-copy > p { color: var(--on-dark-muted); font-size: 17px; max-width: 54ch; }
+  .floor-table { display: grid; border-top: 1px solid rgba(255,255,255,.16); }
+  .floor-table div { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding-block: 13px; border-bottom: 1px solid rgba(255,255,255,.16); font-size: 14.5px; }
+  .floor-table b { font-family: var(--display); font-weight: 700; color: var(--gold-soft); }
+
+  /* Approach */
+  .steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; counter-reset: step; border-top: 2px solid var(--navy-800); }
+  .step { padding: 24px 22px 0 0; display: grid; gap: 8px; align-content: start; counter-increment: step; position: relative; }
+  .step::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: 13px; color: var(--gold); letter-spacing: .1em; }
+  .step h3 { font-size: 17px; font-weight: 700; }
+  .step p { font-size: 14.5px; color: var(--slate); }
+
+  /* Commitments */
+  .commit { border-block: 1px solid var(--line); }
+  .commit ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .commit li { padding: 40px 24px; border-left: 1px solid var(--line); display: grid; gap: 6px; }
+  .commit li:first-child { border-left: 0; padding-left: 0; }
+  .commit b { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 4vw, 46px); line-height: 1; color: var(--navy-800); font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+  .commit span { font-size: 14.5px; color: var(--slate); }
+
+  /* Case study */
+  .case { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .case img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; }
+  .case-body { padding: 36px; display: grid; gap: 16px; align-content: center; }
+  .case-body h3 { font-size: 24px; line-height: 1.2; }
+  .case-body p { color: var(--slate); }
+  .case-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+  .case-facts b { display: block; font-family: var(--display); font-size: 20px; font-variant-numeric: tabular-nums; }
+  .case-facts span { font-size: 13px; color: var(--slate); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--slate); border: 1px solid var(--line); border-radius: 3px; padding: 3px 8px; justify-self: start; }
+
+  /* Proposal */
+  .proposal { position: relative; background: var(--navy-900); color: var(--on-dark); overflow: hidden; }
+  .proposal-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .16; }
+  .proposal .wrap { position: relative; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 56px; align-items: start; }
+  .proposal-copy { display: grid; gap: 20px; }
+  .proposal-copy h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; color: #fff; }
+  .proposal-copy > p { color: var(--on-dark-muted); font-size: 17px; }
+  .contact-list { display: grid; gap: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.14); }
+  .contact-list div { display: grid; gap: 2px; }
+  .contact-list dt, .contact-list span { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--on-dark-muted); }
+  .contact-list b { font-family: var(--display); font-size: 18px; font-weight: 700; color: #fff; user-select: all; }
+  form.card { background: var(--paper); color: var(--ink); border-radius: 6px; padding: 32px; display: grid; gap: 18px; }
+  .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .field { display: grid; gap: 6px; }
+  .field.full { grid-column: 1 / -1; }
+  label { font-size: 13.5px; font-weight: 600; }
+  input, select, textarea {
+    font: inherit; font-size: 15px; color: var(--ink); background: #fff;
+    border: 1px solid #C5CCD8; border-radius: 4px; padding: 11px 12px; width: 100%;
+  }
+  textarea { resize: vertical; min-height: 84px; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--slate); font-weight: 400; }
+  .consent input { width: 16px; height: 16px; margin-top: 3px; flex: none; }
+  .form-foot { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .form-msg { font-size: 14px; color: #1E6B45; font-weight: 500; }
+
+  /* Footer */
+  .site-footer { background: var(--navy-900); color: var(--on-dark-muted); border-top: 1px solid rgba(255,255,255,.1); font-size: 14.5px; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr)); gap: 40px; padding-block: 56px 40px; }
+  .foot-grid h3 { font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 14px; }
+  .foot-grid ul { display: grid; gap: 9px; }
+  .foot-grid a { text-decoration: none; }
+  .foot-grid a:hover { color: #fff; }
+  .foot-about { display: grid; gap: 16px; align-content: start; max-width: 34ch; }
+  .foot-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-block: 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: 13px; }
+  .credits { font-size: 12px; opacity: .7; padding-bottom: 24px; }
+
+  @media (max-width: 1000px) {
+    .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--navy-800); flex-direction: column; align-items: flex-start; gap: 0; padding: 8px 24px 20px; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .nav.open { display: flex; }
+    .nav a { padding-block: 12px; width: 100%; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .menu-btn { display: inline-block; }
+    .hero .wrap, .floor .wrap, .proposal .wrap, .case { grid-template-columns: 1fr; }
+    .hero .wrap { padding-block: 64px 72px; gap: 36px; }
+    .svc-grid, .ind-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .assure ul, .commit ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .assure li:nth-child(odd), .commit li:nth-child(odd) { border-left: 0; padding-left: 0; }
+    .assure li:nth-child(n+3), .commit li:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
+    .clients .wrap { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .section { padding-block: 64px; }
+  }
+  @media (max-width: 620px) {
+    .wrap { padding-inline: 18px; }
+    .header-cta .btn { display: none; }
+    .svc-grid, .ind-grid, .steps, .form-grid, .foot-grid { grid-template-columns: 1fr; }
+    .logo-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .assure ul, .commit ul { grid-template-columns: 1fr; }
+    .assure li, .commit li { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+    .assure li:first-child, .commit li:first-child { border-top: 0; }
+    .commit li { padding-block: 26px; }
+    .spec-row, .floor-table div { grid-template-columns: 1fr; gap: 2px; }
+    .case-body, form.card { padding: 22px; }
+    .case-facts { grid-template-columns: 1fr; }
+    .util-group.secondary { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .ind img, .btn { transition: none; }
+  }
+</style>
+
+<div class="mock-note"><div class="wrap">Design mockup. Figures, licence numbers, client logos and the case study are placeholders to be replaced with Lumayra's real data.</div></div>
+
+<div class="util">
+  <div class="wrap">
+    <div class="util-group">
+      <span>Operations desk 24/7: <strong>+971 58 530 0315</strong></span>
+      <span><strong>info@lumayra.ae</strong></span>
+    </div>
+    <div class="util-group secondary">
+      <span>Al Quoz Industrial 1, Dubai</span>
+      <span>Trade Licence No. 0000000</span>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Lumayra home">
+      <b>LUMAYRA</b>
+      <span>FACILITY CLEANING</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#industries">Industries</a>
+      <a href="#services">Services</a>
+      <a href="#floor-care">Floor Care</a>
+      <a href="#approach">Our Approach</a>
+      <a href="#projects">Projects</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-gold" href="#proposal">Request a Proposal</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-bg" src="images/hero-lobby.jpg" alt="">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Commercial cleaning and floor care · UAE</span>
+        <h1>European cleaning standards for <em>UAE workplaces.</em></h1>
+        <p class="hero-lead">Contract cleaning, floor restoration and specialist services for offices, hotels, clinics, retail and industrial sites. We plan around your operating hours and report against an agreed service level.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#proposal">Request a Proposal</a>
+          <a class="btn btn-ghost" href="#proposal">Book a Free Site Survey</a>
+        </div>
+        <ul class="hero-points">
+          <li>15+ years operating in Europe</li>
+          <li>Insured and licensed in Dubai</li>
+          <li>Supervised, uniformed teams</li>
+        </ul>
+      </div>
+
+      <aside class="spec" aria-label="Example contract scope">
+        <div class="spec-head">
+          <h2>What a contract looks like</h2>
+          <span>Example</span>
+        </div>
+        <dl>
+          <div class="spec-row"><dt>Site</dt><dd>Grade A office, 4,200 m², 3 floors</dd></div>
+          <div class="spec-row"><dt>Schedule</dt><dd>Mon to Fri, 20:00 to 02:00, plus day porter</dd></div>
+          <div class="spec-row"><dt>Team</dt><dd>6 cleaners, 1 on-site supervisor</dd></div>
+          <div class="spec-row"><dt>Quality</dt><dd>Weekly audit, target score 95% or above</dd></div>
+          <div class="spec-row"><dt>Response</dt><dd>Reactive requests attended within 2 hours</dd></div>
+          <div class="spec-row"><dt>Reporting</dt><dd>Monthly report to your facilities manager</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="assure" aria-label="Assurances">
+    <div class="wrap">
+      <ul>
+        <li><b>Insured operations</b><span>Public liability and workmen's compensation cover</span></li>
+        <li><b>Vetted staff</b><span>Background-checked, trained and on our own visas</span></li>
+        <li><b>Approved chemicals</b><span>Dubai Municipality registered products only</span></li>
+        <li><b>Written service levels</b><span>Scope, frequencies and KPIs fixed in the contract</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="clients" aria-label="Clients">
+    <div class="wrap">
+      <p>Facilities and property teams we work with</p>
+      <div class="logo-row">
+        <div class="logo-slot">Client logo</div>
+        <div class="logo-slot">Client logo</div>
+        <div class="logo-slot">Client logo</div>
+        <div class="logo-slot">Client logo</div>
+        <div class="logo-slot">Client logo</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="industries">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Industries</span>
+        <h2>Cleaning programmes built for your type of facility</h2>
+        <p>Each sector has its own hygiene standards, access rules and peak hours. Your programme starts from those, with a team trained for that environment.</p>
+      </div>
+      <div class="ind-grid">
+        <a class="ind" href="#proposal">
+          <img src="images/ind-office.jpg" alt="Open-plan corporate office">
+          <div class="ind-body"><h3>Offices and Corporate</h3><p>After-hours cleaning, day porters, IT-safe workstation care</p></div>
+        </a>
+        <a class="ind" href="#proposal">
+          <img src="images/ind-hotel.jpg" alt="Hotel corridor with housekeeping equipment">
+          <div class="ind-body"><h3>Hospitality</h3><p>Public areas, back of house, marble and carpet care</p></div>
+        </a>
+        <a class="ind" href="#proposal">
+          <img src="images/ind-healthcare.jpg" alt="Clean clinic corridor">
+          <div class="ind-body"><h3>Healthcare and Clinics</h3><p>Infection-control protocols and colour-coded equipment</p></div>
+        </a>
+        <a class="ind" href="#proposal">
+          <img src="images/ind-retail.jpg" alt="Shopping mall atrium">
+          <div class="ind-body"><h3>Retail and Malls</h3><p>Trading-hours porterage and overnight machine cleaning</p></div>
+        </a>
+        <a class="ind" href="#proposal">
+          <img src="images/ind-industrial.jpg" alt="Warehouse aisles with racking">
+          <div class="ind-body"><h3>Industrial and Warehouses</h3><p>Ride-on scrubbing, degreasing and high-bay dusting</p></div>
+        </a>
+        <a class="ind" href="#proposal">
+          <img src="images/ind-towers.jpg" alt="Rope-access technicians cleaning a glass facade">
+          <div class="ind-body"><h3>Towers and FM Partners</h3><p>Common areas, facades and subcontract support</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2>One contractor for daily cleaning and specialist work</h2>
+        <p>Combine services under a single contract and a single point of contact, or call us in for a one-off project.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc">
+          <img src="images/svc-contract.jpg" alt="Cleaner vacuuming an office floor">
+          <div class="svc-body">
+            <h3>Contract Cleaning</h3>
+            <p>Scheduled daily, weekly and periodic cleaning for occupied buildings.</p>
+            <ul><li>Offices and common areas</li><li>Day porters and night shifts</li><li>Consumables management</li></ul>
+            <a class="svc-link" href="#proposal">Contract cleaning →</a>
+          </div>
+        </article>
+        <article class="svc">
+          <img src="images/svc-floor.jpg" alt="Industrial floor scrubber machine">
+          <div class="svc-body">
+            <h3>Floor Care and Restoration</h3>
+            <p>Machine cleaning and restoration for every commercial floor type.</p>
+            <ul><li>Marble polishing and crystallisation</li><li>Strip, seal and polish for vinyl</li><li>Concrete and epoxy scrubbing</li></ul>
+            <a class="svc-link" href="#floor-care">Floor care →</a>
+          </div>
+        </article>
+        <article class="svc">
+          <img src="images/svc-hygiene.jpg" alt="Technician mopping a clinical corridor">
+          <div class="svc-body">
+            <h3>Hygiene and Sanitary</h3>
+            <p>Washroom, pantry and touch-point hygiene with documented checks.</p>
+            <ul><li>Washroom deep cleaning</li><li>Disinfection programmes</li><li>Server-room and IT cleaning</li></ul>
+            <a class="svc-link" href="#proposal">Hygiene services →</a>
+          </div>
+        </article>
+        <article class="svc">
+          <img src="images/svc-specialist.jpg" alt="Technicians on a lift cleaning a glass facade">
+          <div class="svc-body">
+            <h3>Specialist and Project Cleaning</h3>
+            <p>Planned projects with method statements and risk assessments.</p>
+            <ul><li>Post-construction and handover</li><li>Facade, glass and high-level</li><li>Carpet and upholstery extraction</li></ul>
+            <a class="svc-link" href="#proposal">Specialist cleaning →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section floor" id="floor-care">
+    <div class="wrap">
+      <img src="images/floor-feature.jpg" alt="Polished floor reflecting overhead lights in a large hall">
+      <div class="floor-copy">
+        <span class="eyebrow">Our specialism</span>
+        <h2>Floor care is where Lumayra started</h2>
+        <p>Floors are the largest finished surface in your building and the costliest to replace. We restore and maintain them with the right machine, pad and chemistry for each material.</p>
+        <div class="floor-table">
+          <div><b>Marble and stone</b><span>Diamond honing from 400 to 3000 grit, crystallisation, sealing</span></div>
+          <div><b>Vinyl and LVT</b><span>Strip, seal and polish with slip-rated finishes</span></div>
+          <div><b>Concrete and epoxy</b><span>Ride-on scrubber-dryers, degreasing, line-marking safe methods</span></div>
+          <div><b>Carpet</b><span>Hot-water extraction and low-moisture encapsulation</span></div>
+        </div>
+        <div><a class="btn btn-gold" href="#proposal">Get a floor assessment</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="approach">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Our approach</span>
+        <h2>From first site visit to monthly review</h2>
+        <p>The same five stages apply to every contract, so you know what happens next and who is responsible.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Site survey</h3><p>We walk the facility, measure areas and note surfaces, access and risks.</p></div>
+        <div class="step"><h3>Scope and proposal</h3><p>You receive task frequencies, staffing, equipment and a fixed price.</p></div>
+        <div class="step"><h3>Mobilisation</h3><p>Team induction, site-specific training and equipment delivered before day one.</p></div>
+        <div class="step"><h3>Quality audits</h3><p>Supervisors score each area weekly. Issues are logged and closed out.</p></div>
+        <div class="step"><h3>Report and review</h3><p>Monthly report with audit scores, attendance and recommendations.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="commit" aria-label="Service commitments">
+    <div class="wrap">
+      <ul>
+        <li><b>15+</b><span>years of commercial cleaning operations in Europe</span></li>
+        <li><b>24/7</b><span>operations desk for your facilities team</span></li>
+        <li><b>2 hr</b><span>target response for reactive cleaning requests</span></li>
+        <li><b>95%</b><span>minimum audit score we commit to in every contract</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Projects</span>
+        <h2>Recent work</h2>
+      </div>
+      <article class="case">
+        <img src="images/hero-lobby.jpg" alt="Marble lobby after restoration">
+        <div class="case-body">
+          <span class="tag">Placeholder case study</span>
+          <h3>Marble restoration for a commercial tower lobby</h3>
+          <p>The lobby floor had lost its finish after years of foot traffic and incorrect chemicals. We restored it over six night shifts with no disruption to tenants, then moved the site to a monthly maintenance plan.</p>
+          <div class="case-facts">
+            <div><b>1,150 m²</b><span>marble restored</span></div>
+            <div><b>6 nights</b><span>on site</span></div>
+            <div><b>0 hours</b><span>lobby closed</span></div>
+          </div>
+          <div><a class="btn btn-line" href="#proposal">Discuss a similar project</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section proposal" id="proposal">
+    <img class="proposal-bg" src="images/cta-dubai.jpg" alt="">
+    <div class="wrap">
+      <div class="proposal-copy">
+        <span class="eyebrow">Request a proposal</span>
+        <h2>Tell us about your facility</h2>
+        <p>We reply within one working day to arrange a free site survey. You receive a written scope and fixed price after the visit.</p>
+        <div class="contact-list">
+          <div><span>Operations desk</span><b>+971 58 530 0315</b></div>
+          <div><span>Email</span><b>info@lumayra.ae</b></div>
+          <div><span>Office</span><b>Bin Dasmal Building 3, Al Quoz Industrial 1, Dubai</b></div>
+        </div>
+        <div><a class="btn btn-ghost" href="#proposal">Company profile (PDF)</a></div>
+      </div>
+
+      <form class="card" id="proposalForm" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="f-company">Company name</label><input id="f-company" name="company" autocomplete="organization" required></div>
+          <div class="field"><label for="f-name">Contact name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-emirate">Emirate</label>
+            <select id="f-emirate" name="emirate"><option>Dubai</option><option>Abu Dhabi</option><option>Sharjah</option><option>Ajman</option><option>Other</option></select></div>
+          <div class="field"><label for="f-type">Facility type</label>
+            <select id="f-type" name="type"><option>Office</option><option>Hotel</option><option>Healthcare</option><option>Retail or mall</option><option>Warehouse or industrial</option><option>Residential tower</option><option>Other</option></select></div>
+          <div class="field"><label for="f-size">Approximate area (m²)</label><input id="f-size" name="size" inputmode="numeric" placeholder="e.g. 2,500"></div>
+          <div class="field"><label for="f-service">Service required</label>
+            <select id="f-service" name="service"><option>Contract cleaning</option><option>Floor care and restoration</option><option>Hygiene and sanitary</option><option>Specialist or project cleaning</option><option>Not sure yet</option></select></div>
+          <div class="field"><label for="f-freq">Frequency</label>
+            <select id="f-freq" name="freq"><option>Daily</option><option>Several times a week</option><option>Weekly</option><option>One-off project</option></select></div>
+          <div class="field"><label for="f-hours">Preferred working hours</label>
+            <select id="f-hours" name="hours"><option>After business hours</option><option>During business hours</option><option>Overnight</option><option>24/7 coverage</option></select></div>
+          <div class="field full"><label for="f-notes">Anything else we should know</label><textarea id="f-notes" name="notes"></textarea></div>
+        </div>
+        <label class="consent" for="f-consent"><input id="f-consent" name="consent" type="checkbox" required>
+          <span>I agree that Lumayra may process these details to respond to my enquiry, in line with the UAE Personal Data Protection Law and the Privacy Policy.</span></label>
+        <div class="form-foot">
+          <button class="btn btn-navy" type="submit">Request a Proposal</button>
+          <span class="form-msg" id="formMsg" role="status" hidden>Mockup only: the form is not connected yet.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="logo" href="#top"><b>LUMAYRA</b><span>FACILITY CLEANING</span></a>
+        <p>Commercial cleaning and floor care for businesses across the UAE, run to European operating standards.</p>
+        <p>Lumayra Cleaning LLC<br>Trade Licence No. 0000000</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul><li><a href="#services">Contract Cleaning</a></li><li><a href="#floor-care">Floor Care and Restoration</a></li><li><a href="#services">Hygiene and Sanitary</a></li><li><a href="#services">Specialist Cleaning</a></li></ul>
+      </div>
+      <div>
+        <h3>Industries</h3>
+        <ul><li><a href="#industries">Offices</a></li><li><a href="#industries">Hospitality</a></li><li><a href="#industries">Healthcare</a></li><li><a href="#industries">Retail and Malls</a></li><li><a href="#industries">Industrial</a></li></ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul><li><a href="#approach">Our Approach</a></li><li><a href="#projects">Projects</a></li><li><a href="#proposal">Company Profile</a></li><li><a href="#proposal">Careers</a></li><li><a href="https://www.linkedin.com/">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Lumayra Cleaning LLC. All rights reserved.</span>
+      <span>Privacy Policy · Legal Statements</span>
+    </div>
+    <p class="credits">Mockup photos from Unsplash (free licence): Andy Wang, Adolfo Félix, Ashwini Chaudhary, Tasha Kostyuk, Declan Sun, Alberto Rodríguez, Simone Dinoia, web seo, giyofloor floor machine, Priscilla Du Preez, Toon Lambrechts, Craftsman Concrete Floors, Kate Trysh.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('menuBtn');
+    var nav = document.getElementById('nav');
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+    });
+    document.getElementById('proposalForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('formMsg').hidden = false;
+    });
+  })();
+</script>
