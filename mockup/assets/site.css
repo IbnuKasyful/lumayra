@@ -590,10 +590,10 @@ ul {
   color: var(--teal);
 }
 
-/* Three service cards */
+/* Two service cards: Floor Maintenance and Specialist Cleaning */
 .pillars {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
   margin-top: 56px;
 }
